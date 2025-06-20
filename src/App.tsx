@@ -6,7 +6,7 @@ import "./App.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function Model() {
-  const model = useGLTF("/src/assets/model1.glb");
+  const model = useGLTF("/diego-portfolio/model1.glb");
   return <primitive object={model.scene} position={[0, 0, 0]} scale={1} />;
 }
 
