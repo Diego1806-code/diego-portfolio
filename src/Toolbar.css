@@ -6,25 +6,38 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   width: 4px;
-  height: 300px;
+  height: 60px;
   transition: all 0.3s ease;
   border-radius: 0 10px 10px 0;
   overflow: hidden;
   z-index: 1000;
+  touch-action: none;
 }
 
-.toolbar::before {
-  content: "";
+.toolbar-indicator {
   position: absolute;
   left: 0;
   top: 0;
   width: 4px;
   height: 100%;
   background: linear-gradient(180deg, #2a2a72, #009ffd);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .toolbar.expanded {
-  width: 200px;
+  width: min(200px, 50vw);
   background: rgba(255, 255, 255, 0.15);
 }
 
@@ -53,18 +66,34 @@
   width: 100%;
   border-radius: 8px;
   transition: background 0.2s ease;
+  text-decoration: none;
+  font-size: clamp(14px, 4vw, 16px);
 }
 
-.toolbar-item:hover {
+.toolbar-item:hover,
+.toolbar-item:active {
   background: rgba(255, 255, 255, 0.1);
 }
 
 .toolbar-item i {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   width: 24px;
 }
 
 .toolbar-item span {
-  font-size: 1rem;
   white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    height: 80px; /* Larger touch target for mobile */
+  }
+
+  .toolbar-indicator {
+    width: 6px; /* Slightly wider indicator for mobile */
+  }
+
+  .toolbar-item {
+    padding: 15px; /* Larger touch target */
+  }
 }

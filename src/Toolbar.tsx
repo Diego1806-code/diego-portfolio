@@ -4,11 +4,21 @@ import "./Toolbar.css";
 const Toolbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const handleTouchStart = () => {
+    setIsExpanded(true);
+  };
+
+  const handleTouchEnd = () => {
+    setIsExpanded(false);
+  };
+
   return (
     <div
       className={`toolbar ${isExpanded ? "expanded" : ""}`}
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <div className="toolbar-content">
         <button className="toolbar-item">
