@@ -1,0 +1,70 @@
+.toolbar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: 4px;
+  height: 300px;
+  transition: all 0.3s ease;
+  border-radius: 0 10px 10px 0;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.toolbar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #2a2a72, #009ffd);
+}
+
+.toolbar.expanded {
+  width: 200px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.toolbar-content {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.toolbar.expanded .toolbar-content {
+  opacity: 1;
+}
+
+.toolbar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.toolbar-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.toolbar-item i {
+  font-size: 1.2rem;
+  width: 24px;
+}
+
+.toolbar-item span {
+  font-size: 1rem;
+  white-space: nowrap;
+}
