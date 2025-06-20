@@ -10,6 +10,22 @@ function Model() {
   return <primitive object={model.scene} position={[0, 0, 0]} scale={1} />;
 }
 
+// Add error handling and loading state
+import { Suspense } from "react";
+
+function Scene() {
+  return (
+    <>
+      <Suspense fallback={null}>
+        <Model />
+      </Suspense>
+      <OrbitControls />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
+    </>
+  );
+}
+
 function Scene() {
   return (
     <>
@@ -56,4 +72,6 @@ function App() {
     </div>
   );
 }
+useGLTF.preload("/diego-portfolio/model1.glb");
+
 export default App;
