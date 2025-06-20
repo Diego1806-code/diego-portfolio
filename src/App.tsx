@@ -26,16 +26,6 @@ function Scene() {
   );
 }
 
-function Scene() {
-  return (
-    <>
-      <Model />
-      <OrbitControls />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-    </>
-  );
-}
 function App() {
   return (
     <div className="app-container">
