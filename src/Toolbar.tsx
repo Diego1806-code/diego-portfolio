@@ -4,22 +4,18 @@ import "./Toolbar.css";
 const Toolbar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleTouchStart = () => {
-    setIsExpanded(true);
-  };
-
-  const handleTouchEnd = () => {
-    setIsExpanded(false);
+  const handleInteraction = (expanded: boolean) => {
+    setIsExpanded(expanded);
   };
 
   return (
     <div
       className={`toolbar ${isExpanded ? "expanded" : ""}`}
-      onMouseEnter={() => setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
+      onMouseEnter={() => handleInteraction(true)}
+      onMouseLeave={() => handleInteraction(false)}
+      onClick={() => handleInteraction(!isExpanded)}
     >
+      <div className="toolbar-hint">Tap to expand</div>
       <div className="toolbar-content">
         <button className="toolbar-item">
           <i className="fas fa-home"></i>
