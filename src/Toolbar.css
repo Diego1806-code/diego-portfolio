@@ -5,40 +5,19 @@
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  width: 4px;
-  height: 300px;
-  transition: all 0.3s ease;
+  width: 200px;
+  height: auto;
   border-radius: 0 10px 10px 0;
   overflow: hidden;
   z-index: 1000;
 }
 
-.toolbar::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, #2a2a72, #009ffd);
-}
-
-.toolbar.expanded {
-  width: 200px;
-  background: rgba(255, 255, 255, 0.15);
-}
-
 .toolbar-content {
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  opacity: 1;
   padding: 20px 10px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-}
-
-.toolbar.expanded .toolbar-content {
-  opacity: 1;
 }
 
 .toolbar-item {
@@ -53,6 +32,7 @@
   width: 100%;
   border-radius: 8px;
   transition: background 0.2s ease;
+  text-decoration: none;
 }
 
 .toolbar-item:hover {
@@ -69,41 +49,33 @@
   white-space: nowrap;
 }
 
-/* ... existing code ... */
-
-.toolbar-hint {
-  display: none;
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  font-size: 0.8rem;
-  opacity: 0.7;
-  white-space: nowrap;
-}
-
 @media (max-width: 768px) {
   .toolbar {
-    height: 80px;
-    cursor: pointer;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
   }
 
-  .toolbar-hint {
-    display: block;
+  .toolbar-content {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    gap: 5px;
   }
 
-  .toolbar.expanded .toolbar-hint {
-    display: none;
-  }
-
-  .toolbar.expanded {
-    width: 180px;
-  }
-
-  /* Make sure toolbar items are easy to tap */
   .toolbar-item {
-    padding: 15px;
-    min-height: 44px; /* minimum touch target size */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px;
+  }
+
+  .toolbar-item span {
+    font-size: 0.8rem;
   }
 }

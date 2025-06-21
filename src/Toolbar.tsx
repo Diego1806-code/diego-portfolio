@@ -1,38 +1,26 @@
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Toolbar.css";
 
 const Toolbar = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleInteraction = (expanded: boolean) => {
-    setIsExpanded(expanded);
-  };
-
   return (
-    <div
-      className={`toolbar ${isExpanded ? "expanded" : ""}`}
-      onMouseEnter={() => handleInteraction(true)}
-      onMouseLeave={() => handleInteraction(false)}
-      onClick={() => handleInteraction(!isExpanded)}
-    >
-      <div className="toolbar-hint">Tap to expand</div>
+    <div className="toolbar expanded">
       <div className="toolbar-content">
-        <button className="toolbar-item">
+        <NavLink to="/diego-portfolio/" className="toolbar-item">
           <i className="fas fa-home"></i>
           <span>Home</span>
-        </button>
-        <button className="toolbar-item">
+        </NavLink>
+        <NavLink to="/diego-portfolio/about" className="toolbar-item">
           <i className="fas fa-user"></i>
           <span>About</span>
-        </button>
-        <button className="toolbar-item">
+        </NavLink>
+        <NavLink to="/diego-portfolio/projects" className="toolbar-item">
           <i className="fas fa-code"></i>
           <span>Projects</span>
-        </button>
-        <button className="toolbar-item">
+        </NavLink>
+        <NavLink to="/diego-portfolio/contact" className="toolbar-item">
           <i className="fas fa-envelope"></i>
           <span>Contact</span>
-        </button>
+        </NavLink>
         <a
           href="https://github.com/Diego1806-code"
           target="_blank"
