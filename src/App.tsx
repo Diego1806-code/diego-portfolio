@@ -20,8 +20,20 @@ function Scene() {
         <Model />
       </Suspense>
       <OrbitControls />
+
       <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
+
+      <spotLight
+        position={[0, 5, 5]}
+        angle={0.5}
+        penumbra={1}
+        intensity={50}
+        castShadow
+      />
+
+      <pointLight position={[0, 3, 3]} intensity={80} />
+
+      <directionalLight position={[10, 10, 5]} intensity={0.5} />
     </>
   );
 }
