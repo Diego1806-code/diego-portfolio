@@ -189,3 +189,34 @@ header {
     padding: 1rem;
   }
 }
+
+.canvas-container {
+  width: 800px;
+  height: 800px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .canvas-container {
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+  }
+
+  .hero-section {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .canvas-container {
+    width: 500px;
+    height: 500px;
+  }
+}
